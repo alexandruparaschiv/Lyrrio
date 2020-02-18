@@ -5,7 +5,7 @@ import pandas as pd
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-import jsonify 
+import jsonify
 
 app = Flask(__name__)
 CORS(app)
@@ -16,19 +16,12 @@ vectorizer = pickle.load(open('vectorizer.pkl','rb'))
 def hello_world(**data):
     data = request.get_json(force=True)
     lyrics = data['lyrics']
-    x_train = vectorizer.transform(pd.Series(lyrics))
-    genre = clf.predict(x_train)
-    probs = clf.predict_proba(x_train)
-    print(type(probs[0]))
-    print(type(genre[0]))
-    print(genre[0],probs[0])
-    #resp = (genre[0],probs[0])
-    #d = jsonify(dict(genre=genre[0],probabilities=probs[0]))
-    #return make_response(jsonify(d),200)
-    #return Response(d,content_type="application/json; charset=utf-8" )
-    #data = {'name': 'davidism'}
-    #return jsonify(data)
+    if not lyrics:
+        return None;
+    song_lyrics = vectorizer.transform(pd.Series(lyrics))
+    genre = clf.predict(song_lyrics)
+    probs = clf.predict_proba(song_lyrics)
     headers = {"Content-Type": "application/octet-stream","Content-Disposition": "attachment; filename=foobar.json"}
     return (json.dumps({"genre": genre[0],"probabilities":list(probs[0])}), 200, headers)
 
-app.run(debug=True)
+app.run('0.0.0.0')
