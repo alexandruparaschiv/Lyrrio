@@ -1,30 +1,40 @@
 # Lyrrio
 
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)   [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+Lyrrio is a machine-learning powered web-application that can predict the musical genre of some given lyrics. Lyrrio was built by  first scraping song lyrics using the Python library BeautifulSoup. Then, the songs are converted to a vectorized form (each word representing a row) The algorithm behind Lyrrio's classification is simple TF-IDF (term frequency-inverse term frequency) coupled with a regularised logistic regression. This model outperformed SVMs, and  Only gradient based methods scored a higher accuracy (measured by accuracy and mean F-score), but due to the computational 
 
-
-Lyrrio is an web-application that can predict the musical genre of some given lyrics. Lyrrio was built by scraping song lyrics using the Python library BeautifulSoup. The algorithm behind Lyrrio's classification is simple TF-IDF (term frequency-inverse term frequency) coupled with a regularised logistic regression. Pull requests and suggestions are welcome. 
+Pull requests and suggestions are welcome. 
 
 ### Set-up
-### Docker
-Lyrrio is easy to set-up locally using docker-compose. Both the front-end and the back-end are served from their respective Docker containers.
 
-Verify the deployment by navigating to your server address in your preferred browser.
+Lyrrio is easy to set-up locally using docker-compose. Both the front-end and the back-end are served from their respective Docker containers. To make the app work locally, first change the axios POST url inside the LyricsForm.vue component to 'https://localhost5000:/predict'.
+
+Then, set up the corresponding docker-containers:
 
 ```sh
-127.0.0.1:8000
+cd lyrrio
+docker-compose up
 ```
+
+Verify the deployment by navigating to your server address in your preferred browser at:
+
+```sh
+https://localhost8080
+```
+
+The app should now and predict 
 
 ### Todos
 
- - Add back-end tests
- - Acquire more data
- - Perform a K-fold Grid search Crossvalidation on 
- - Deploy to GCP using Kubernetes
+ - Add back-end automatic tests using py.test fixtures.
+ - Acquire more data.
+ - Use to more sophisticated models such as word2vec, GloVe embeddings and attention-based models such as BERT and ELMO.
+ - Deploy to  a GCP cluster using Kubernetes
 
 License
 ----
 
 MIT
+
