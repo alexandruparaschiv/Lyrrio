@@ -24,7 +24,7 @@ Verify the deployment by navigating to your server address in your preferred bro
 https://localhost:8080
 ```
 
-The app should now and predict 
+The app should now be up and able to predict the musical genre.
 
 ### Todos
 
