@@ -6,9 +6,11 @@ import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 import jsonify
+import os
 
 app = Flask(__name__)
 CORS(app)
+port = int(os.environ.get("PORT",5000))
 clf = pickle.load(open('lyrics_classifier.pkl', 'rb'))
 vectorizer = pickle.load(open('vectorizer.pkl','rb'))
 
@@ -24,4 +26,5 @@ def hello_world(**data):
     headers = {"Content-Type": "application/octet-stream","Content-Disposition": "attachment; filename=foobar.json"}
     return (json.dumps({"genre": genre[0],"probabilities":list(probs[0])}), 200, headers)
 
-app.run('0.0.0.0')
+if __name__ == "__main__":
+	app.run(debug=True,host='0.0.0.0',port=port)
