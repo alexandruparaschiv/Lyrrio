@@ -1,0 +1,16 @@
+FROM node:13.8.0-alpine
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+ENV PATH usr/src/app/node_modules/.bin:$PATH
+
+COPY package.json usr/src/app/package.json
+COPY . /usr/src/app
+
+RUN apk update && apk add yarn python g++ make && rm -rf /var/cache/apk/*
+RUN npm install
+
+RUN npm install @vue/cli@3.7.0 -g
+
+CMD ["npm", "run", "serve"]
