@@ -7,7 +7,7 @@ Lyrrio is a machine-learning powered web-application that can predict the musica
 
 
 <p align="center">
-  <img src="frontend/src/assets/screenshot.png" width="200" height="200" title="hover text">
+  <img src="frontend/src/assets/screenshot.png" width="2300" height="300" title="hover text">
 </p>
 
 Pull requests and suggestions are welcome. 
