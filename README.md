@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)   [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+<p align="center">
+  <img src="frontend/src/assets/screenshot.png" width="400" height="400" title="hover text">
+</p>
+
 
 Lyrrio is a machine-learning powered web-application that can predict the musical genre of some given lyrics. Lyrrio was built by  first scraping song lyrics using the Python library BeautifulSoup. Then, the songs are converted to a vectorized form (each word representing a row) The algorithm behind Lyrrio's classification is simple TF-IDF (term frequency-inverse term frequency) coupled with a regularised logistic regression. This model outperformed SVMs and Naive-Bayes methods.  Only boosted tree-based methods (such as XGBoost) scored a higher accuracy (measured by accuracy and mean F-score), but due to the computational cost, they were not used in this model.
 
