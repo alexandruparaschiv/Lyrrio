@@ -72,7 +72,7 @@ Keras-Preprocessing==1.0.5
 lazy-object-proxy==1.2.1
 llvmlite==0.20.0
 locket==0.2.0
-lxml==3.6.4
+lxml==4.6.5
 Mako==1.1.0
 Markdown==3.0.1
 MarkupSafe==0.23
