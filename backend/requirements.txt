@@ -14,7 +14,7 @@ binaryornot==0.4.4
 blaze==0.10.1
 boto==2.42.0
 Bottleneck==1.2.1
-certifi==2019.6.16
+certifi==2022.12.7
 cffi==1.7.0
 chardet==3.0.4
 chest==0.2.3
